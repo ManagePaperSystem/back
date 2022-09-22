@@ -53,8 +53,8 @@ func SendEmail(e string) (passcode string, flag bool) {
 	var mailConf MailboxConf
 	mailConf.Title = "中小学作业系统验证码"
 	mailConf.RecipientList = []string{e}
-	mailConf.Sender = `281597094@qq.com`
-	mailConf.SPassword = "ysdskdgrqgazbiag"
+	mailConf.Sender = `your email`
+	mailConf.SPassword = "your password"
 	mailConf.SMTPAddr = `smtp.qq.com`
 	mailConf.SMTPPort = 25
 	rnd := RandNumber(1000000)
