@@ -10,10 +10,9 @@
 
 
 
-
 ## 环境配置
 
-本项目使用 Beego 框架 创建 API 工程，如果需要在您的本地计算机中运行，请提前下载 bee 并配置好相关的环境变量。
+本项目使用 Beego 框架 创建 API 工程，如果需要在您的本地计算机中运行，请提前下载 bee 并配置相关的环境变量。
 
 建议您使用 docker 等方法创建虚拟环境，或者直接访问我的网站调用相关 api，地址为[124.222.69.106:8055]()。
 
@@ -42,9 +41,7 @@ bee run -gendoc=true -downdoc=true
 ## 特别鸣谢
 
 + https://github.com/beego/beego ：一 个 伟 大 的 框 架。
-
 + https://github.com/beego/bee ：为本项目提供了环境配置和运行的能力。
-
 + https://github.com/mattn/go-sqlite3 ：为本项目提供了 sqlite3 处理工具。
 + https://github.com/swagger-api/swagger-ui ：为本项目提供 API 文档页面。
 + https://github.com/go-gomail/gomail ：为本项目提供邮件收发的功能。
