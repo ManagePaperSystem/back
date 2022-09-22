@@ -1,0 +1,359 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API\n",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/question/check": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "description": "判断题目\n\u003cbr\u003e",
+                "operationId": "QuesController.Check",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Question",
+                        "description": "题目表达式",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Choice",
+                        "description": "选项",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{[]bool} ans"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/question/check/list": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "description": "题目列表\n\u003cbr\u003e",
+                "operationId": "QuesController.CheckList",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{[]string} ans"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/question/check/paper": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "description": "查看题目\n\u003cbr\u003e",
+                "operationId": "QuesController.CheckPaper",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "TimeStr",
+                        "description": "时间",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{[]object} ans"
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            }
+        },
+        "/question/delete": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "description": "删除题目\n\u003cbr\u003e",
+                "operationId": "QuesController.DeletePaper",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "TimeStr",
+                        "description": "时间",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{bool} flag"
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            }
+        },
+        "/question/gen": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "description": "生成题目\n\u003cbr\u003e",
+                "operationId": "QuesController.Generate",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Phase",
+                        "description": "年级",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Number",
+                        "description": "数量",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{[]object} ans"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/user/getcode": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "请求验证码\n\u003cbr\u003e",
+                "operationId": "UserController.GetCode",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "邮箱",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{bool} flag"
+                    },
+                    "403": {
+                        "description": "user not exist"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "登录账户\n\u003cbr\u003e",
+                "operationId": "UserController.Login",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Password",
+                        "description": "密码",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{bool} flag"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/user/modify": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "修改密码\n\u003cbr\u003e",
+                "operationId": "UserController.ModifyPassword",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Password",
+                        "description": "密码",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{bool} flag"
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            }
+        },
+        "/user/reg": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "检查验证码\n\u003cbr\u003e",
+                "operationId": "UserController.Register",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "邮箱地址",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Code",
+                        "description": "验证码",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{bool} flag"
+                    },
+                    "403": {
+                        "description": "user not exist"
+                    }
+                }
+            }
+        },
+        "/user/set": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "设置密码和年级\n\u003cbr\u003e",
+                "operationId": "UserController.SetAccount",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "Account",
+                        "description": "账号",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "Password",
+                        "description": "密码",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{nil}"
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "user",
+            "description": "Operations about Users\n"
+        },
+        {
+            "name": "question",
+            "description": "Operations about Users\n"
+        }
+    ]
+}
